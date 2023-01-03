@@ -19,6 +19,7 @@ function createGrid() {
 
             if (posY == gridHeight - 1 && posX == Math.floor(gridWidth / 2)) {
                 gridCell.classList.add("tireur");
+                // gridCell.classList.add("alien");
             }
 
             grid.appendChild(gridCell);
@@ -32,6 +33,8 @@ function death() {
     divList.forEach(
         (div) => {
             if (div.classList.contains("tireur") && div.classList.contains("alien") ) {
+
+                div.classList.add("game-over");
                 let text = document.querySelector("h3");
 
                 text.innerHTML = "Game Over"
@@ -41,3 +44,4 @@ function death() {
 }
 
 createGrid();
+death();

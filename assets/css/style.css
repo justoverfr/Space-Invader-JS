@@ -49,3 +49,7 @@ h3 {
 .laser {
     background-color: orange;
 }
+
+.game-over {
+    background-color: red;
+}
