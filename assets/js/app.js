@@ -21,6 +21,9 @@ function createGrid() {
                 gridCell.classList.add("tireur");
                 // gridCell.classList.add("alien");
             }
+            if (posY < 3) {
+                gridCell.classList.add("alien");
+            }
 
             grid.appendChild(gridCell);
         }
