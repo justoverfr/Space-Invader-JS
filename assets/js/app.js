@@ -20,6 +20,9 @@ function createGrid() {
             if (posY == gridHeight - 1 && posX == Math.floor(gridWidth / 2)) {
                 gridCell.classList.add("tireur");
             }
+            if (posY < 3) {
+                gridCell.classList.add("alien");
+            }
 
             grid.appendChild(gridCell);
         }
