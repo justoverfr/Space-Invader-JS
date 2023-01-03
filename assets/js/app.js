@@ -10,7 +10,7 @@ function createGrid() {
             if (posX == 0 || posX == gridWidth - 1) {
                 gridCell.classList.add("grid-side");
 
-                if (posY == 0) {
+                if (posX == 0) {
                     gridCell.classList.add("grid-left");
                 } else {
                     gridCell.classList.add("grid-right");
