@@ -16,6 +16,11 @@ function createGrid() {
                     gridCell.classList.add("grid-right");
                 }
             }
+
+            if (posY == gridHeight - 1 && posX == Math.floor(gridWidth / 2)) {
+                gridCell.classList.add("tireur");
+            }
+
             grid.appendChild(gridCell);
         }
     }
