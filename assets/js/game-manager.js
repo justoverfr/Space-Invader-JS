@@ -43,3 +43,10 @@ export function death() {
     });
 }
 
+export function win(){
+    if (alien.alienArray.length == 0){
+        let text = document.querySelector("h3");
+
+        text.innerHTML = "You Won"; 
+    }
+}

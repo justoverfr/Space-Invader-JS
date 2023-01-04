@@ -20,6 +20,6 @@ function update() {
     alien.updateAlien();
     bullet.updateBullet();
     manager.death();
-
+    manager.win();
     window.requestAnimationFrame(update); // Game loop
 }
