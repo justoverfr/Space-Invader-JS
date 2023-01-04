@@ -9,14 +9,6 @@ export let shipPosY;
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
-export function getShipPosX() {
-    return shipPosX;
-}
-
-export function getShipPosY() {
-    return shipPosY;
-}
-
 export function setShipPosX(posX) {
     shipPosX = posX;
 }

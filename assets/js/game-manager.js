@@ -18,8 +18,6 @@ export function initAliens() {
     }
 }
 
-//[[0,1][0,2][0,3]...[2,15]]
-
 export function death() {
     let divList = document.querySelectorAll("div");
 
