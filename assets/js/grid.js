@@ -38,7 +38,7 @@ export function createGrid() {
             }
 
             if (stringBulletArray.includes(JSON.stringify([posX, posY]))) {
-                gridCell.classList.add("laser");
+                gridCell.classList.add("bullet");
             }
 
             grid.appendChild(gridCell);

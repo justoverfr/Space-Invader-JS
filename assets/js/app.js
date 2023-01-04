@@ -8,6 +8,7 @@ console.clear();
 function start() {
     manager.initShip();
     manager.initAliens();
+    manager.initScore();
 
     window.requestAnimationFrame(update);
 }
@@ -23,6 +24,6 @@ function update() {
     alien.updateAlien();
     bullet.updateBullet();
     manager.death();
-
+    manager.win();
     window.requestAnimationFrame(update); // Game loop
 }

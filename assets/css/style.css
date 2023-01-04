@@ -46,9 +46,10 @@ h3 {
     background-color: red;
 }
 
-.laser {
-    background-color: orange;
-    border-radius: 50%;
+.bullet {
+    background: url(../images/lazer.png);
+    background-position: center;
+    background-size: contain;
 }
 
 .game-over {

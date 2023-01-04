@@ -2,6 +2,30 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
+var music1 = document.getElementById("audio");
+function stop_music() {
+  music1.pause();
+}
+
+var music_game_over = document.getElementById("audio-game-over");
+function playMusicGameOver() {
+  music_game_over.play();
+}
+
+var music_win = document.getElementById("win");
+function playSiuu() {
+  music_win.play();
+}
+
+export let score;
+export function initScore(){
+    score = 0
+}
+
+export function addScore(value){
+    score += value
+}
+
 export function initShip() {
     const shipX = Math.floor(gridWidth / 2);
     const shipY = gridHeight - 1;
@@ -27,8 +51,18 @@ export function death() {
             div.classList.contains("alien")
         ) {
             let text = document.querySelector("h3");
-
-            text.innerHTML = "Game Over";
+            stop_music();
+            playMusicGameOver();
+            text.innerHTML = "GameOver";
         }
     });
+}
+
+export function win(){
+    if (alien.alienArray.length == 0){
+        let text = document.querySelector("h3");
+        stop_music();
+        playSiuu();
+        text.innerHTML = "You Won"; 
+    }
 }
