@@ -48,6 +48,7 @@ h3 {
 
 .laser {
     background-color: orange;
+    border-radius: 50%;
 }
 
 .game-over {
