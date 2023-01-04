@@ -1,14 +1,22 @@
 import * as grid from "./grid.js";
+import * as alien from "./alien.js";
+import * as manager from "./game-manager.js";
+
 console.clear();
 window.requestAnimationFrame(update);
 
 function start() {
-    grid.createGrid();
+    manager.initShip();
+    manager.initAliens();
 }
 
 start();
+
 function update() {
     grid.updateGrid();
 
-    window.requestAnimationFrame(update);
+    alien.updateAlien();
+    manager.death();
+
+    window.requestAnimationFrame(update); // Game loop
 }

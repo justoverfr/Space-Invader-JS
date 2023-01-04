@@ -1,10 +1,15 @@
 import * as ship from "./ship.js";
+import * as alien from "./alien.js";
 
 const grid = document.querySelector(".grille");
-const gridWidth = 20;
-const gridHeight = 20;
+export const gridWidth = 20;
+export const gridHeight = 20;
 
 export function createGrid() {
+    const stringAlienArray = alien.alienArray.map((alien) => {
+        return JSON.stringify(alien);
+    });
+
     for (let posY = 0; posY < gridHeight; posY++) {
         for (let posX = 0; posX < gridWidth; posX++) {
             const gridCell = document.createElement("div");
@@ -19,10 +24,11 @@ export function createGrid() {
                 }
             }
 
-            if (posY == gridHeight - 1 && posX == ship.getShipPos()) {
+            if (posX == ship.shipPosX && posY == ship.shipPosY) {
                 gridCell.classList.add("tireur");
             }
-            if (posY < 3 && posX > 3 && posX < 16) {
+
+            if (stringAlienArray.includes(JSON.stringify([posX, posY]))) {
                 gridCell.classList.add("alien");
             }
 

@@ -1,15 +1,42 @@
-let shipPos = 10;
+import { gridWidth, gridHeight } from "./grid.js";
 
-export function getShipPos() {
-    return shipPos;
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+export let shipPosX;
+export let shipPosY;
+
+/* -------------------------------------------------------------------------- */
+/*                                   Program                                  */
+/* -------------------------------------------------------------------------- */
+export function getShipPosX() {
+    return shipPosX;
+}
+
+export function getShipPosY() {
+    return shipPosY;
+}
+
+export function setShipPosX(posX) {
+    shipPosX = posX;
+}
+
+export function setShipPosY(posY) {
+    shipPosY = posY;
 }
 
 export function moveShip(key) {
-    if (key == "81" || key == "37") {
-        shipPos--;
-    } else if (key == "68" || key == "39") {
-        shipPos++;
+    if (key == "81" || (key == "37" && shipPosX > 0)) {
+        shipPosX--;
+    } else if (key == "68" || (key == "39" && shipPosX < gridWidth - 1)) {
+        shipPosX++;
     }
+
+    // if (key == "90" || key == "38") {
+    //     shipPosY--;
+    // } else if (key == "83" || key == "40") {
+    //     shipPosY++;
+    // }
 }
 
 function keydown(event) {
