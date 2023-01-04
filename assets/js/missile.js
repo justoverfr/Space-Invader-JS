@@ -1,7 +1,7 @@
 import { alienArray } from "./alien.js";
 import { gridWidth } from "./grid.js";
 import {shipPosX, shipPosY} from "./ship.js"
-
+import {score, addScore} from "./game-manager.js";
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -29,6 +29,7 @@ export function updateBullet() {
     }
     
     const divList = document.querySelectorAll("div");
+    let text = document.querySelector("h3")
     let divX = 0;
     let divY = 0;
     
@@ -37,9 +38,9 @@ export function updateBullet() {
             bulletArray.splice(div,1);
 
             alienArray.splice([divX, divY], 1);
-            console.log(alienArray.includes([divX, divY]));
-            console.log(divX);
-            console.log(divY);
+            
+            addScore(1);
+            text.innerHTML = "Score : " +  score;
         }
 
         divX++;

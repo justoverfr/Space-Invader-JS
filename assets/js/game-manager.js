@@ -2,14 +2,13 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
-var music1 = document.getElementById("audio");
-function stop_music() {
-  music1.pause();
+export let score;
+export function initScore(){
+    score = 0
 }
 
-var music_game_over = document.getElementById('audio-game-over');
-function playMusicGameOver() {
-  music_game_over.play();
+export function addScore(value){
+    score += value
 }
 
 export function initShip() {
