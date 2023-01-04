@@ -9,6 +9,7 @@ window.requestAnimationFrame(update);
 function start() {
     manager.initShip();
     manager.initAliens();
+    manager.initScore();
 }
 
 start();

@@ -2,6 +2,16 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
+
+export let score;
+export function initScore(){
+    score = 0
+}
+
+export function addScore(value){
+    score += value
+}
+
 export function initShip() {
     const shipX = Math.floor(gridWidth / 2);
     const shipY = gridHeight - 1;
