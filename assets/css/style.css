@@ -56,3 +56,8 @@ h3 {
 .game-over {
     background-color: red;
 }
+
+.rejouer {
+    display: flex;
+    align-items: center;
+}
