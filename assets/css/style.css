@@ -47,7 +47,9 @@ h3 {
 }
 
 .bullet {
-    background-color: orange;
+    background: url(../images/lazer.png);
+    background-position: center;
+    background-size: contain; 
 }
 
 .game-over {

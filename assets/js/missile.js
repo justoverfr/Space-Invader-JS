@@ -35,7 +35,7 @@ export function updateBullet() {
     
     divList.forEach((div) => {
         if(div.classList.contains("bullet") && div.classList.contains("alien")){
-            bulletArray.splice(div,1);
+            bulletArray.splice([divX, divY], 1);
 
             alienArray.splice([divX, divY], 1);
             
