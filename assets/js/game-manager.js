@@ -12,6 +12,11 @@ function playMusicGameOver() {
   music_game_over.play();
 }
 
+var music_win = document.getElementById("win");
+function playSiuu() {
+  music_win.play();
+}
+
 export let score;
 export function initScore(){
     score = 0
@@ -56,7 +61,8 @@ export function death() {
 export function win(){
     if (alien.alienArray.length == 0){
         let text = document.querySelector("h3");
-
+        stop_music();
+        playSiuu();
         text.innerHTML = "You Won"; 
     }
 }
