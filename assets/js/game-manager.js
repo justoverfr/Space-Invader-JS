@@ -2,6 +2,16 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
+var music1 = document.getElementById("audio");
+function stop_music() {
+  music1.pause();
+}
+
+var music_game_over = document.getElementById("audio-game-over");
+function playMusicGameOver() {
+  music_game_over.play();
+}
+
 export let score;
 export function initScore(){
     score = 0
@@ -37,7 +47,7 @@ export function death() {
         ) {
             let text = document.querySelector("h3");
             stop_music();
-            music_game_over();
+            playMusicGameOver();
             text.innerHTML = "GameOver";
         }
     });
