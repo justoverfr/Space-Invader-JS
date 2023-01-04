@@ -35,9 +35,9 @@ function keydown(event) {
     var key = event.keyCode;
     moveShip(key);
 }
+
 function keyup(event) {
     var key = event.keyCode;
-    console.log(key);
     moveShip(key);
 }
 

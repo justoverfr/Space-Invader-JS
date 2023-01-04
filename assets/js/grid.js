@@ -1,5 +1,6 @@
 import * as ship from "./ship.js";
 import * as alien from "./alien.js";
+import * as bullet from "./missile.js";
 
 const grid = document.querySelector(".grille");
 export const gridWidth = 20;
@@ -8,6 +9,10 @@ export const gridHeight = 20;
 export function createGrid() {
     const stringAlienArray = alien.alienArray.map((alien) => {
         return JSON.stringify(alien);
+    });
+
+    const stringBulletArray = bullet.bulletArray.map((bullet) => {
+        return JSON.stringify(bullet);
     });
 
     for (let posY = 0; posY < gridHeight; posY++) {
@@ -30,6 +35,10 @@ export function createGrid() {
 
             if (stringAlienArray.includes(JSON.stringify([posX, posY]))) {
                 gridCell.classList.add("alien");
+            }
+
+            if (stringBulletArray.includes(JSON.stringify([posX, posY]))) {
+                gridCell.classList.add("laser");
             }
 
             grid.appendChild(gridCell);

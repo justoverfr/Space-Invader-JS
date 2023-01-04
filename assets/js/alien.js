@@ -6,17 +6,12 @@ const speed = 3;
 let direction = 1;
 
 let nextMove = Date.now();
-// 60
-
 let newLine = false;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
 export function updateAlien() {
-    console.log(alienArray);
-
-    //68
     if (Date.now() > nextMove) {
         alienArray.forEach((alienPos) => {
             alienPos[0] += direction;
