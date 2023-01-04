@@ -24,11 +24,11 @@ export function moveShip(key) {
         shipPosX++;
     }
 
-    // if (key == "90" || key == "38") {
-    //     shipPosY--;
-    // } else if (key == "83" || key == "40") {
-    //     shipPosY++;
-    // }
+    if (key == "90" || key == "38" && shipPosY > gridHeight - 3) {
+        shipPosY--;
+      } else if (key == "83" || key == "40" && shipPosY < gridHeight - 1) {
+          shipPosY++;
+     }
 }
 
 function keydown(event) {
