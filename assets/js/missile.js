@@ -1,3 +1,5 @@
+import { alienArray } from "./alien.js";
+import { gridWidth } from "./grid.js";
 import {shipPosX, shipPosY} from "./ship.js"
 
 /* -------------------------------------------------------------------------- */
@@ -7,23 +9,47 @@ export const bulletArray = [];
 const speed = 10;
 
 let nextMove = Date.now();
+export let bulletPos;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
 export function updateBullet() {
+    
     if (Date.now() > nextMove) {
         bulletArray.forEach((bulletPos) => {
             bulletPos[1]--;
-
+            
             nextMove = Date.now() + (1 / speed) * 1000;
-
+            
             if (bulletPos[1] < 0) {
                 bulletArray.splice(bulletPos, 1);
             } 
         });
     }
+    
+    const divList = document.querySelectorAll("div");
+    let divX = 0;
+    let divY = 0;
+    
+    divList.forEach((div) => {
+        if(div.classList.contains("bullet") && div.classList.contains("alien")){
+            bulletArray.splice(div,1);
+
+            alienArray.splice([divX, divY], 1);
+            console.log(alienArray.includes([divX, divY]));
+            console.log(divX);
+            console.log(divY);
+        }
+
+        divX++;
+        if (divX >= gridWidth) {
+            divX = 0;
+            divY++;
+        }
+    });
 }
+
 
 function shoot(key) {
     if (key == "32") {

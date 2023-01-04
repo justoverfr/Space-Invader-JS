@@ -7,6 +7,7 @@ let direction = 1;
 
 let nextMove = Date.now();
 let newLine = false;
+export let alienPos
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
