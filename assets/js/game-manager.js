@@ -2,6 +2,11 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
+var music = document.getElementById("audio");
+function stop_music() {
+  music.pause();
+}
+
 export function initShip() {
     const shipX = Math.floor(gridWidth / 2);
     const shipY = gridHeight - 1;
@@ -27,8 +32,10 @@ export function death() {
             div.classList.contains("alien")
         ) {
             let text = document.querySelector("h3");
-
-            text.innerHTML = "Game Over";
+            stop_music();
+            text.innerHTML = "GameOver";
         }
     });
 }
+
+
