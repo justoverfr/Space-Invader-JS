@@ -4,7 +4,7 @@ import * as manager from "./game-manager.js";
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 export let alienArray = [];
-const speed = 30;
+const speed = 3;
 let direction = 1;
 
 let nextMove = Date.now();

@@ -55,8 +55,8 @@ export function initShip() {
 export function initAliens() {
     alien.alienArray.splice(0, alien.alienArray.length);
 
-    for (let posY = 0; posY < 1; posY++) {
-        for (let posX = 4; posX < 5; posX++) {
+    for (let posY = 0; posY < 3; posY++) {
+        for (let posX = 4; posX < 19; posX++) {
             alien.alienArray.push([posX, posY]);
         }
     }
