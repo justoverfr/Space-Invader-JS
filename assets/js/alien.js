@@ -1,4 +1,5 @@
 import * as manager from "./game-manager.js";
+import { gridHeight } from "./grid.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
@@ -19,8 +20,12 @@ export function updateAlien() {
         alienArray.forEach((alienPos) => {
             alienPos[0] += direction;
 
+            if (alienPos[1] == gridHeight - 1) {
+                manager.death();
+            }
+
             nextMove = Date.now() + (1 / speed) * 1000;
-            manager.test();
+            // manager.test();
         });
     }
 
