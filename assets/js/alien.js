@@ -1,3 +1,5 @@
+import * as manager from "./game-manager.js";
+
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -18,6 +20,7 @@ export function updateAlien() {
             alienPos[0] += direction;
 
             nextMove = Date.now() + (1 / speed) * 1000;
+            manager.test();
         });
     }
 

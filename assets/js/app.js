@@ -39,7 +39,7 @@ function update() {
         restartButton.removeAttribute("disabled");
     }
 
-    manager.test();
+    // manager.test();
 }
 
 function restart() {
