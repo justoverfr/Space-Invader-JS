@@ -28,7 +28,6 @@ export function startGame() {
 }
 
 export function initDisplay() {
-    // resultDisplay.innerHTML = "";
     ui.hide(ui.resultDisplay);
 
     ui.scoreDisplay.innerHTML = "Score: 0";
@@ -84,6 +83,17 @@ export function manageCollision() {
     if (shipCollision !== null) {
         death();
     }
+
+    const divList = document.querySelectorAll("div");
+
+    divList.forEach((div) => {
+        if (
+            div.classList.contains("alien-bullet") &&
+            div.classList.contains("vaisseau")
+        ) {
+            death();
+        }
+    });
 }
 
 function detectCollision(array1, array2) {

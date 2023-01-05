@@ -15,6 +15,10 @@ export function createGrid() {
         return JSON.stringify(bullet);
     });
 
+    const stringAlienBulletArray = bullet.alienBulletArray.map((bullet) => {
+        return JSON.stringify(bullet);
+    });
+
     let posX = 0;
     let posY = 0;
     for (let pos = 0; pos < gridWidth * gridHeight; pos++) {
@@ -40,6 +44,10 @@ export function createGrid() {
 
         if (stringBulletArray.includes(JSON.stringify([posX, posY]))) {
             gridCell.classList.add("bullet");
+        }
+
+        if (stringAlienBulletArray.includes(JSON.stringify([posX, posY]))) {
+            gridCell.classList.add("alien-bullet");
         }
 
         grid.appendChild(gridCell);

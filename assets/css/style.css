@@ -75,6 +75,13 @@ h3 {
     background-size: contain;
 }
 
+.alien-bullet {
+    background: url(../images/alien-lazer.png);
+    transform: rotate(180deg);
+    background-position: center;
+    background-size: contain;
+}
+
 .game-over {
     background-color: red;
 }

@@ -1,33 +1,63 @@
+import { gridHeight } from "./grid.js";
 import { shipPosX, shipPosY } from "./ship.js";
+import { alienArray } from "./alien.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 export let bulletArray = [];
-const speed = 10;
-
-let nextMove = Date.now();
-export let bulletPos;
+const speed = 20;
 
 let nextShoot = Date.now();
 const shootRate = 0.5;
 
+export let alienBulletArray = [];
+
+const AlienShootFrequency = 1;
+let nextAlienShoot = Date.now() + AlienShootFrequency * 1000;
+
+let nextMove = Date.now();
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
 export function updateBullet() {
     if (Date.now() > nextMove) {
-        moveBullet();
+        moveBullet(bulletArray, -1);
+        moveBullet(alienBulletArray, 1);
         nextMove = Date.now() + (1 / speed) * 1000;
+    }
+
+    if (Date.now() > nextAlienShoot) {
+        alienShoot();
+        nextAlienShoot = Date.now() + AlienShootFrequency * 1000;
     }
 }
 
-function moveBullet() {
-    bulletArray.forEach((bulletPos) => {
-        bulletPos[1]--;
+function alienShoot() {
+    const alienBulletPos = initAlienBulletPos();
+    console.log(alienBulletPos);
 
-        if (bulletPos[1] < 0) {
-            bulletArray.splice(bulletArray.indexOf(bulletPos), 1);
+    alienBulletArray.push(alienBulletPos);
+}
+
+function initAlienBulletPos() {
+    const lowestAlienY = alienArray[alienArray.length - 1][1];
+    const AlienXOnLowestY = alienArray
+        .filter((alien) => alien[1] == lowestAlienY)
+        .map((alien) => alien[0]);
+
+    const randomAlienX =
+        AlienXOnLowestY[Math.floor(Math.random() * AlienXOnLowestY.length)];
+
+    return [randomAlienX, lowestAlienY + 1];
+}
+
+function moveBullet(array, direction) {
+    array.forEach((bulletPos) => {
+        bulletPos[1] += direction;
+
+        if (bulletPos[1] < 0 || bulletPos[1] > gridHeight - 1) {
+            array.splice(array.indexOf(bulletPos), 1);
         }
     });
 }
