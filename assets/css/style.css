@@ -46,18 +46,12 @@ h3 {
     background-color: red;
 }
 
-.bullet {        
+.bullet {
     background: url(../images/lazer.png);
     background-position: center;
-    background-size: contain; 
-    /* border-radius: 50%; */
+    background-size: contain;
 }
 
 .game-over {
     background-color: red;
-}
-
-.rejouer {
-    display: flex;
-    align-items: center;
 }
