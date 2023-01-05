@@ -28,8 +28,6 @@ function update() {
     bullet.updateBullet();
     manager.manageCollision();
 
-    manager.win();
-
     grid.updateGrid();
     if (manager.isPlaying) {
         window.requestAnimationFrame(update); // Game loop

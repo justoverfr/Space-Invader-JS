@@ -56,7 +56,7 @@ export function initAliens() {
     alien.alienArray.splice(0, alien.alienArray.length);
 
     for (let posY = 0; posY < 3; posY++) {
-        for (let posX = 4; posX < 19; posX++) {
+        for (let posX = 4; posX < 16; posX++) {
             alien.alienArray.push([posX, posY]);
         }
     }
@@ -79,6 +79,10 @@ export function manageCollision() {
         deletePosition(alien.alienArray, bulletCollision);
         deletePosition(bullet.bulletArray, bulletCollision);
         addScore(1);
+
+        if (alien.alienArray.length == 0) {
+            win();
+        }
     }
 
     const shipPos = [[ship.shipPosX, ship.shipPosY]];
@@ -127,11 +131,8 @@ export function death() {
 }
 
 export function win() {
-    if (alien.alienArray.length == 0) {
-        let text = document.querySelector("h3");
-        stop_music();
-        playSiuu();
-        text.innerHTML = "You Won";
-        isPlaying = false;
-    }
+    scoreDisplay.innerHTML = "You Won";
+    stop_music();
+    playSiuu();
+    isPlaying = false;
 }
