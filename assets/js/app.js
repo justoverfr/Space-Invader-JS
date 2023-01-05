@@ -10,6 +10,7 @@ function start() {
     manager.initAliens();
     manager.initScore();
 
+    manager.startGame();
     window.requestAnimationFrame(update);
 }
 
@@ -23,7 +24,17 @@ function update() {
 
     alien.updateAlien();
     bullet.updateBullet();
-    manager.death();
+    manager.manageCollision();
+
     manager.win();
-    window.requestAnimationFrame(update); // Game loop
+    console.log(manager.isPlaying);
+    if (manager.isPlaying) {
+        window.requestAnimationFrame(update); // Game loop
+    } else {
+        restart();
+    }
+}
+
+function restart() {
+    start();
 }

@@ -1,13 +1,13 @@
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
-export const alienArray = [];
+export let alienArray = [];
 const speed = 3;
 let direction = 1;
 
 let nextMove = Date.now();
 let newLine = false;
-export let alienPos
+export let alienPos;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
