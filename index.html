@@ -8,17 +8,21 @@
         <script type="module" src="assets/js/app.js"></script>
     </head>
     <body>
-        
         <audio id="audio" src="/musique/07_Jupiter.mp3" autoplay loop></audio>
         <audio id="audio-game-over" src="/musique/game-over.mp3"></audio>
         <audio id="win" src="/musique/win_siuu.mp3"></audio>
 
         <section id="game">
+            <h2 class="result"></h2>
             <h3 class="score"></h3>
             <div class="grille"></div>
         </section>
 
-        <div class="button-container"><button id="restart-button" disabled>RESTART</button></div>
-        <div class="button-container"><button id="start-button">START</button></div>
+        <div class="button-container">
+            <button id="restart-button" disabled>RESTART</button>
+        </div>
+        <div class="button-container">
+            <button id="start-button">START</button>
+        </div>
     </body>
 </html>

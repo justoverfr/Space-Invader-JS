@@ -2,25 +2,24 @@ import * as grid from "./grid.js";
 import * as alien from "./alien.js";
 import * as manager from "./game-manager.js";
 import * as bullet from "./missile.js";
+import * as ui from "./ui.js";
 
 console.clear();
 
-const gameDisplay = document.querySelector("#game");
-console.log(gameDisplay);
+ui.startButton.addEventListener("click", start);
 
-const startButton = document.querySelector("#start-button")
-startButton.addEventListener("click", start);
-
-const restartButton = document.querySelector("#restart-button");
-restartButton.addEventListener("click", restart);
+ui.restartButton.addEventListener("click", restart);
 
 function start() {
-    gameDisplay.style.display = "block";
-    startButton.setAttribute("disabled", "");
-    restartButton.setAttribute("disabled", "");
+    // gameDisplay.style.display = "block";
+    // startButton.setAttribute("disabled", "");
+    // restartButton.setAttribute("disabled", "");
+
     manager.initShip();
     manager.initAliens();
     manager.initScore();
+
+    manager.initDisplay();
 
     manager.startGame();
     window.requestAnimationFrame(update);
@@ -34,8 +33,6 @@ function update() {
     grid.updateGrid();
     if (manager.isPlaying) {
         window.requestAnimationFrame(update); // Game loop
-    } else {
-        restartButton.removeAttribute("disabled");
     }
 }
 

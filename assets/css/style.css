@@ -13,7 +13,9 @@ body {
     background-color: black;
     background: url(../images/seamless-space.png);
     animation: background-defile 10s linear infinite;
+
     color: white;
+    font-family: "Press Start 2p";
 }
 
 #game {
@@ -40,10 +42,9 @@ body {
     }
 }
 
+h2,
 h3 {
-    font-family: "Press Start 2p";
     text-align: center;
-    margin: 20px 0;
 }
 
 .grille div {
@@ -88,8 +89,9 @@ button[disabled] {
 }
 
 button {
-    font-size: 25pt;
+    font-size: 25px;
     font-family: "Press Start 2p";
+
     text-align: center;
     display: inline-block;
     margin: 5px;

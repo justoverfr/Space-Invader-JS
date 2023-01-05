@@ -45,7 +45,7 @@ export function createGrid() {
         grid.appendChild(gridCell);
 
         posX++;
-        if (posX == gridWidth) {
+        if (posX >= gridWidth) {
             posX = 0;
             posY++;
         }

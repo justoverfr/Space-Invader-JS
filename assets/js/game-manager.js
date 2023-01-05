@@ -1,6 +1,7 @@
 import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import * as bullet from "./missile.js";
+import * as ui from "./ui.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
 /* -------------------------------------------------------------------------- */
@@ -25,7 +26,6 @@ function playSiuu() {
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 let score;
-const scoreDisplay = document.querySelector(".score");
 
 export let isPlaying = true;
 
@@ -38,11 +38,20 @@ export let isPlaying = true;
 export function startGame() {
     bullet.bulletArray.splice(0, bullet.bulletArray.length);
     isPlaying = true;
+
+    ui.displayGame();
+    ui.disableAllButtons();
+}
+
+export function initDisplay() {
+    // resultDisplay.innerHTML = "";
+    ui.hide(ui.resultDisplay);
+
+    ui.scoreDisplay.innerHTML = "Score: 0";
 }
 
 export function initScore() {
     score = 0;
-    scoreDisplay.innerHTML = "Score: " + score;
 }
 
 export function initShip() {
@@ -66,7 +75,7 @@ export function initAliens() {
 /* ---------------------------------- Score --------------------------------- */
 export function addScore(value) {
     score += value;
-    scoreDisplay.innerHTML = "Score: " + score;
+    ui.scoreDisplay.innerHTML = "Score: " + score;
 }
 
 /* ---------------------------------- Loop ---------------------------------- */
@@ -125,15 +134,25 @@ function deletePosition(array, posToDel) {
 }
 
 export function death() {
-    scoreDisplay.innerHTML = "Game Over";
-    stop_music();
+    ui.resultDisplay.innerHTML = "Game Over";
+    ui.resultDisplay.style.color = "red";
+
+    endGame();
     playMusicGameOver();
-    isPlaying = false;
 }
 
 export function win() {
-    scoreDisplay.innerHTML = "You Won";
-    stop_music();
+    ui.resultDisplay.innerHTML = "You Won";
+    ui.resultDisplay.style.color = "green";
+
+    endGame();
     playSiuu();
+}
+
+function endGame() {
     isPlaying = false;
+    ui.show(ui.resultDisplay);
+    ui.enableButton(ui.restartButton);
+
+    stop_music();
 }
