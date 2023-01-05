@@ -5,10 +5,18 @@ import * as bullet from "./missile.js";
 
 console.clear();
 
-const restartButton = document.querySelector("button");
+const gameDisplay = document.querySelector("#game");
+console.log(gameDisplay);
+
+const startButton = document.querySelector("#start-button")
+startButton.addEventListener("click", start);
+
+const restartButton = document.querySelector("#restart-button");
 restartButton.addEventListener("click", restart);
 
 function start() {
+    gameDisplay.style.display = "block";
+    startButton.setAttribute("disabled", "");
     restartButton.setAttribute("disabled", "");
     manager.initShip();
     manager.initAliens();
@@ -17,11 +25,6 @@ function start() {
     manager.startGame();
     window.requestAnimationFrame(update);
 }
-
-let backgroundMusic = new Audio("../sounds/background-music.mp3");
-backgroundMusic.play();
-
-start();
 
 function update() {
     alien.updateAlien();
