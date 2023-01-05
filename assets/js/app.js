@@ -5,7 +5,11 @@ import * as bullet from "./missile.js";
 
 console.clear();
 
+const restartButton = document.querySelector("button");
+restartButton.addEventListener("click", restart);
+
 function start() {
+    restartButton.setAttribute("disabled", "");
     manager.initShip();
     manager.initAliens();
     manager.initScore();
@@ -31,7 +35,8 @@ function update() {
     if (manager.isPlaying) {
         window.requestAnimationFrame(update); // Game loop
     } else {
-        restart();
+        grid.updateGrid();
+        restartButton.removeAttribute("disabled");
     }
 }
 

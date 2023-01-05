@@ -35,6 +35,7 @@ export let isPlaying = true;
 
 /* ------------------------------ Initalisation ----------------------------- */
 export function startGame() {
+    bullet.bulletArray.splice(0, bullet.bulletArray.length);
     isPlaying = true;
 }
 
@@ -53,6 +54,7 @@ export function initShip() {
 
 export function initAliens() {
     alien.alienArray.splice(0, alien.alienArray.length);
+
     for (let posY = 0; posY < 1; posY++) {
         for (let posX = 4; posX < 5; posX++) {
             alien.alienArray.push([posX, posY]);

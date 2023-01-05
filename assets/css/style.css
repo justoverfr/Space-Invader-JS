@@ -55,3 +55,7 @@ h3 {
 .game-over {
     background-color: red;
 }
+
+button[disabled] {
+    display: none;
+}
