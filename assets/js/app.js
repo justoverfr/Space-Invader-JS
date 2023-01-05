@@ -38,6 +38,8 @@ function update() {
         grid.updateGrid();
         restartButton.removeAttribute("disabled");
     }
+
+    manager.test();
 }
 
 function restart() {

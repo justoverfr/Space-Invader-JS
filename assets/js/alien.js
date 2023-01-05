@@ -2,7 +2,7 @@
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 export let alienArray = [];
-const speed = 3;
+const speed = 30;
 let direction = 1;
 
 let nextMove = Date.now();

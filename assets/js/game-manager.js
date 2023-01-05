@@ -135,3 +135,14 @@ export function win() {
         isPlaying = false;
     }
 }
+
+//-------------
+export function test (){
+    alien.alienArray.forEach(
+        (alienPos) => {
+            if (alienPos[1]== gridHeight - 1){
+                death();
+            }
+        }
+    )
+}
