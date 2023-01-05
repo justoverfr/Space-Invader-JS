@@ -1,7 +1,5 @@
-import { alienArray } from "./alien.js";
-import { gridWidth } from "./grid.js";
 import { shipPosX, shipPosY } from "./ship.js";
-import { addScore } from "./game-manager.js";
+
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
