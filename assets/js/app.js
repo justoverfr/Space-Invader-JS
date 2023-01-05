@@ -24,22 +24,18 @@ backgroundMusic.play();
 start();
 
 function update() {
-    grid.updateGrid();
-
     alien.updateAlien();
     bullet.updateBullet();
     manager.manageCollision();
 
     manager.win();
-    console.log(manager.isPlaying);
+
+    grid.updateGrid();
     if (manager.isPlaying) {
         window.requestAnimationFrame(update); // Game loop
     } else {
-        grid.updateGrid();
         restartButton.removeAttribute("disabled");
     }
-
-    // manager.test();
 }
 
 function restart() {
