@@ -11,10 +11,6 @@ ui.startButton.addEventListener("click", start);
 ui.restartButton.addEventListener("click", restart);
 
 function start() {
-    // gameDisplay.style.display = "block";
-    // startButton.setAttribute("disabled", "");
-    // restartButton.setAttribute("disabled", "");
-
     manager.initShip();
     manager.initAliens();
     manager.initScore();

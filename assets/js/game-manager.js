@@ -2,32 +2,14 @@ import * as ship from "./ship.js";
 import * as alien from "./alien.js";
 import * as bullet from "./missile.js";
 import * as ui from "./ui.js";
+import * as sound from "./sound.js";
 import { gridWidth, gridHeight } from "./grid.js";
-
-/* -------------------------------------------------------------------------- */
-/*                                    Music                                   */
-/* -------------------------------------------------------------------------- */
-var music1 = document.getElementById("audio");
-function stop_music() {
-    music1.pause();
-}
-
-var music_game_over = document.getElementById("audio-game-over");
-function playMusicGameOver() {
-    music_game_over.play();
-}
-
-var music_win = document.getElementById("win");
-function playSiuu() {
-    music_win.play();
-}
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 let score;
-
-export let isPlaying = true;
+export let isPlaying;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
@@ -41,6 +23,8 @@ export function startGame() {
 
     ui.displayGame();
     ui.disableAllButtons();
+
+    sound.backgroundMusic.play();
 }
 
 export function initDisplay() {
@@ -138,7 +122,6 @@ export function death() {
     ui.resultDisplay.style.color = "red";
 
     endGame();
-    playMusicGameOver();
 }
 
 export function win() {
@@ -146,7 +129,6 @@ export function win() {
     ui.resultDisplay.style.color = "green";
 
     endGame();
-    playSiuu();
 }
 
 function endGame() {
@@ -154,5 +136,5 @@ function endGame() {
     ui.show(ui.resultDisplay);
     ui.enableButton(ui.restartButton);
 
-    stop_music();
+    sound.stopSound(sound.backgroundMusic);
 }
