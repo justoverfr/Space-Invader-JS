@@ -34,6 +34,7 @@ export let isPlaying = true;
 /* -------------------------------------------------------------------------- */
 
 /* ------------------------------ Initalisation ----------------------------- */
+
 export function startGame() {
     bullet.bulletArray.splice(0, bullet.bulletArray.length);
     isPlaying = true;

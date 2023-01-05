@@ -16,6 +16,10 @@ body {
     color: white;
 }
 
+#game {
+    display: none;
+}
+
 .grille {
     display: flex;
     flex-wrap: wrap;
@@ -77,8 +81,8 @@ h3 {
 button[disabled] {
     display: none;
 }
-.alignbutton {
-    padding-top: 25px;
+.button-container {
+    margin-top: 25px;
     display: flex;
     justify-content: center;
 }
