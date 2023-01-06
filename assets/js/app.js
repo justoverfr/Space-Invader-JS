@@ -70,11 +70,11 @@ function restartGame() {
 }
 
 function continueGame() {
-    alien.increaseSpeed(5);
+    alien.increaseSpeed(1);
 
-    if (alien.alienShootFrequency > 0.3) {
-        alien.lowerShootFrequency(0.3);
-        Math.max(alien.alienShootFrequency, 0.3);
+    if (alien.alienShootFrequency > 0.2) {
+        alien.lowerShootFrequency(0.1);
+        alien.setAlienShootFrequency(Math.max(alien.alienShootFrequency, 0.2));
     }
     start();
 }

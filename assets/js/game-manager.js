@@ -12,7 +12,7 @@ let score = 0;
 let highscore = window.localStorage.getItem("highscore");
 export let isPlaying;
 
-export let difficulty;
+export let difficulty = "medium";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */

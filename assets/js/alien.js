@@ -36,6 +36,10 @@ export function increaseSpeed(value) {
     speed += value;
 }
 
+export function setAlienShootFrequency(value) {
+    alienShootFrequency = value;
+}
+
 export function lowerShootFrequency(value) {
     alienShootFrequency -= value;
 }
