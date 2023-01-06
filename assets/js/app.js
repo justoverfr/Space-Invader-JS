@@ -50,7 +50,6 @@ function continueGame() {
     if (alien.alienShootFrequency > 0.2) {
         alien.lowerShootFrequency(0.2);
     }
-    bullet.setNextAlienShoot(Date.now() + 2);
     start();
 }
 

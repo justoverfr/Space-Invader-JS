@@ -13,7 +13,7 @@ const shootRate = 0.5;
 
 export let alienBulletArray = [];
 
-export let nextAlienShoot = Date.now() + 2;
+export let nextAlienShoot;
 
 let nextMove = Date.now();
 /* -------------------------------------------------------------------------- */

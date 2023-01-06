@@ -23,6 +23,8 @@ export function startGame() {
     bullet.alienBulletArray.splice(0, bullet.alienBulletArray.length);
     isPlaying = true;
 
+    bullet.setNextAlienShoot(Date.now() + 2);
+
     sound.backgroundMusic.play();
 }
 
