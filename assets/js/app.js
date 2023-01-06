@@ -11,7 +11,7 @@ ui.highscoreDisplay.innerHTML =
 
 ui.startButton.addEventListener("click", startGame);
 
-ui.restartButton.addEventListener("click", restart);
+ui.restartButton.addEventListener("click", startGame);
 
 ui.continueButton.addEventListener("click", continueGame);
 
@@ -39,26 +39,26 @@ function update() {
 }
 
 function startGame() {
-    start();
     manager.resetScore();
     alien.resetSpeedAndShootFrequency();
+    start();
 }
 
 function continueGame() {
-    start();
     alien.increaseSpeed(5);
 
     if (alien.getShootFrequency() > 0.2) {
         alien.lowerShootFrequency(0.2);
     }
     bullet.nextAlienShoot = Date.now() + 2;
+    start();
 }
 
-function restart() {
-    start();
-    manager.resetScore();
-    alien.resetSpeedAndShootFrequency();
-}
+// function restart() {
+//     start();
+//     manager.resetScore();
+//     alien.resetSpeedAndShootFrequency();
+// }
 
 function quit() {
     ui.hide(ui.gameSection);
