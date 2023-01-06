@@ -1,15 +1,48 @@
 import * as ship from "./ship.js";
 import * as alien from "./alien.js";
+import * as bullet from "./missile.js";
 import { gridWidth, gridHeight } from "./grid.js";
 
-
-export let score;
-export function initScore(){
-    score = 0
+/* -------------------------------------------------------------------------- */
+/*                                    Music                                   */
+/* -------------------------------------------------------------------------- */
+var music1 = document.getElementById("audio");
+function stop_music() {
+    music1.pause();
 }
 
-export function addScore(value){
-    score += value
+var music_game_over = document.getElementById("audio-game-over");
+function playMusicGameOver() {
+    music_game_over.play();
+}
+
+var music_win = document.getElementById("win");
+function playSiuu() {
+    music_win.play();
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Variables                                 */
+/* -------------------------------------------------------------------------- */
+let score;
+const scoreDisplay = document.querySelector(".score");
+
+export let isPlaying = true;
+
+/* -------------------------------------------------------------------------- */
+/*                                   Program                                  */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------ Initalisation ----------------------------- */
+
+export function startGame() {
+    bullet.bulletArray.splice(0, bullet.bulletArray.length);
+    isPlaying = true;
+}
+
+export function initScore() {
+    score = 0;
+    scoreDisplay.innerHTML = "Score: " + score;
 }
 
 export function initShip() {
@@ -21,6 +54,8 @@ export function initShip() {
 }
 
 export function initAliens() {
+    alien.alienArray.splice(0, alien.alienArray.length);
+
     for (let posY = 0; posY < 3; posY++) {
         for (let posX = 4; posX < 16; posX++) {
             alien.alienArray.push([posX, posY]);
@@ -28,17 +63,77 @@ export function initAliens() {
     }
 }
 
-export function death() {
-    let divList = document.querySelectorAll("div");
+/* ---------------------------------- Score --------------------------------- */
+export function addScore(value) {
+    score += value;
+    scoreDisplay.innerHTML = "Score: " + score;
+}
 
-    divList.forEach((div) => {
-        if (
-            div.classList.contains("tireur") &&
-            div.classList.contains("alien")
-        ) {
-            let text = document.querySelector("h3");
+/* ---------------------------------- Loop ---------------------------------- */
 
-            text.innerHTML = "Game Over";
+export function manageCollision() {
+    const bulletCollision = detectCollision(
+        bullet.bulletArray,
+        alien.alienArray
+    );
+    if (bulletCollision !== null) {
+        deletePosition(alien.alienArray, bulletCollision);
+        deletePosition(bullet.bulletArray, bulletCollision);
+        addScore(1);
+
+        if (alien.alienArray.length == 0) {
+            win();
+        }
+    }
+
+    const shipPos = [[ship.shipPosX, ship.shipPosY]];
+    const shipCollision = detectCollision(shipPos, alien.alienArray);
+    if (shipCollision !== null) {
+        death();
+    }
+}
+
+function detectCollision(array1, array2) {
+    let collisionPos;
+    array1.forEach((pos1) => {
+        const pos1X = pos1[0];
+        const pos1Y = pos1[1];
+
+        array2.forEach((pos2) => {
+            const pos2X = pos2[0];
+            const pos2Y = pos2[1];
+
+            if (pos1X == pos2X && pos1Y == pos2Y) {
+                collisionPos = pos1;
+            }
+        });
+    });
+
+    if (collisionPos != null) {
+        return collisionPos;
+    }
+    return null;
+}
+
+function deletePosition(array, posToDel) {
+    array.forEach((pos) => {
+        if (JSON.stringify(pos) == JSON.stringify(posToDel)) {
+            const posIndex = array.indexOf(pos);
+            array.splice(posIndex, 1);
         }
     });
+}
+
+export function death() {
+    scoreDisplay.innerHTML = "Game Over";
+    stop_music();
+    playMusicGameOver();
+    isPlaying = false;
+}
+
+export function win() {
+    scoreDisplay.innerHTML = "You Won";
+    stop_music();
+    playSiuu();
+    isPlaying = false;
 }

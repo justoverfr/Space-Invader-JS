@@ -1,46 +1,79 @@
+import * as manager from "./game-manager.js";
+import { gridHeight } from "./grid.js";
+
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
-export const alienArray = [];
-const speed = 3;
+export let alienArray = [];
+const speed = 300;
 let direction = 1;
+let goingDown = false;
+let leavingSide = false;
 
 let nextMove = Date.now();
-let newLine = false;
-export let alienPos
+export let alienPos;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
 export function updateAlien() {
+    /*met à jour la position de l'alien, choisis la direction de déplacement, 
+    déplace alien uniquement si heure actuelle > heure du prochain mouvement*/
+    setMoveDirection();
+
     if (Date.now() > nextMove) {
-        alienArray.forEach((alienPos) => {
-            alienPos[0] += direction;
+        moveAlien();
+        nextMove = Date.now() + (1 / speed) * 1000;
 
-            nextMove = Date.now() + (1 / speed) * 1000;
-        });
+        if (goingDown && !leavingSide) {
+            goingDown = false;
+            leavingSide = true;
+        }
     }
+}
 
+function setMoveDirection() {
+    /*prend tous les elements div du documents & regarde les div qui sont des aliens et sur le coté de la grille
+    si c'est la cas on appelle la fonction "SetDirectionDown */
     let divList = document.querySelectorAll("div");
 
-    newLine = false;
     divList.forEach((div) => {
         if (
             div.classList.contains("grid-side") &&
             div.classList.contains("alien") &&
-            !newLine
+            !leavingSide &&
+            !goingDown
         ) {
-            if (div.classList.contains("grid-left")) {
-                direction = 1;
-            } else {
-                direction = -1;
-            }
-
-            alienArray.forEach((alien_) => {
-                alien_[0] += direction;
-                newLine = true;
-                alien_[1]++;
-            });
+            setDirectionDown(div);
         }
     });
 }
+
+function setDirectionDown(div) {
+    /*choisi la postion en fonction de la div passé en paramètre, si la div a la classe "grid-left"la direction = 1 (droite)
+    sinon la direction = -1 (gauche)*/ 
+    if (div.classList.contains("grid-left")) {
+        direction = 1;
+    } else {
+        direction = -1;
+    }
+
+    goingDown = true;
+}
+
+function moveAlien() {
+    //parcours le tableau ("alienAray") & met a jour chaque position d'alien par rapport a la position actuelle
+    alienArray.forEach((alienPos) => {
+        if (leavingSide || (!goingDown && !leavingSide)) {
+            alienPos[0] += direction;
+            leavingSide = false;
+        } else if (goingDown && !leavingSide) {
+            alienPos[1] += 1;
+        }
+
+        if (alienPos[1] == gridHeight - 1) {
+            manager.death();
+        }
+    });
+}
+

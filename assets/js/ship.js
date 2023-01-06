@@ -18,17 +18,17 @@ export function setShipPosY(posY) {
 }
 
 export function moveShip(key) {
-    if (key == "81" || (key == "37" && shipPosX > 0)) {
+    if ((key == "81" || key == "37") && shipPosX > 0) {
         shipPosX--;
-    } else if (key == "68" || (key == "39" && shipPosX < gridWidth - 1)) {
+    } else if ((key == "68" || key == "39") && shipPosX < gridWidth - 1) {
         shipPosX++;
     }
 
-    if (key == "90" || key == "38" && shipPosY > gridHeight - 3) {
+    if ((key == "90" || key == "38") && shipPosY > gridHeight - 3) {
         shipPosY--;
-      } else if (key == "83" || key == "40" && shipPosY < gridHeight - 1) {
-          shipPosY++;
-     }
+    } else if ((key == "83" || key == "40") && shipPosY < gridHeight - 1) {
+        shipPosY++;
+    }
 }
 
 function keydown(event) {
