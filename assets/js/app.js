@@ -47,13 +47,13 @@ function update() {
 function startGame() {
     manager.resetScore();
     if (manager.difficulty == "easy") {
-        alien.setDefaultSpeed(3);
+        alien.setDefaultSpeed(1);
         alien.setDefaultShootFrequency(1.5);
     } else if (manager.difficulty == "medium") {
-        alien.setDefaultSpeed(5);
+        alien.setDefaultSpeed(3);
         alien.setDefaultShootFrequency(1);
     } else {
-        alien.setDefaultSpeed(7);
+        alien.setDefaultSpeed(5);
         alien.setDefaultShootFrequency(0.5);
     }
 

@@ -13,7 +13,7 @@ export let alienShootFrequency = 1;
 let direction = 1;
 
 export const alienXNum = 12;
-export const alienYNum = 1;
+export const alienYNum = 3;
 
 let goingDown = false;
 let leavingSide = false;
