@@ -8,7 +8,7 @@ import { gridWidth, gridHeight } from "./grid.js";
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
-let score;
+let score = 0;
 let highscore = window.localStorage.getItem("highscore");
 export let isPlaying;
 
@@ -34,7 +34,7 @@ export function initDisplay() {
     ui.scoreDisplay.innerHTML = "Score: 0";
 }
 
-export function initScore() {
+export function resetScore() {
     score = 0;
 }
 
@@ -141,6 +141,8 @@ export function death() {
     ui.resultDisplay.innerHTML = "Game Over";
     ui.resultDisplay.style.color = "red";
 
+    ui.enableButton(ui.restartButton);
+    ui.disableButton(ui.continueButton);
     endGame();
 }
 
@@ -148,13 +150,14 @@ export function win() {
     ui.resultDisplay.innerHTML = "You Won";
     ui.resultDisplay.style.color = "green";
 
+    ui.enableButton(ui.continueButton);
+    ui.disableButton(ui.restartButton);
     endGame();
 }
 
 function endGame() {
     isPlaying = false;
     ui.show(ui.endGameSection);
-    ui.enableButton(ui.restartButton);
 
     if (highscore == null || score > highscore) {
         highscore = score;

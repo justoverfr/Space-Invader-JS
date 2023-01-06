@@ -1,6 +1,6 @@
 import { gridHeight } from "./grid.js";
 import { shipPosX, shipPosY } from "./ship.js";
-import { alienArray } from "./alien.js";
+import { alienArray, alienShootFrequency } from "./alien.js";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
@@ -13,8 +13,7 @@ const shootRate = 0.5;
 
 export let alienBulletArray = [];
 
-const AlienShootFrequency = 1;
-let nextAlienShoot = Date.now() + 2;
+export let nextAlienShoot = Date.now() + 2;
 
 let nextMove = Date.now();
 /* -------------------------------------------------------------------------- */
@@ -29,7 +28,7 @@ export function updateBullet() {
 
     if (Date.now() > nextAlienShoot) {
         alienShoot();
-        nextAlienShoot = Date.now() + AlienShootFrequency * 1000;
+        nextAlienShoot = Date.now() + alienShootFrequency * 1000;
     }
 }
 

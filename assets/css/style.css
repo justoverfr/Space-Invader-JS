@@ -22,6 +22,15 @@ body {
     display: none;
 }
 
+#end-game {
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
 .grille {
     display: flex;
     flex-wrap: wrap;
@@ -90,7 +99,6 @@ button[disabled] {
     display: none;
 }
 .button-container {
-    margin-top: 25px;
     display: flex;
     justify-content: center;
 }

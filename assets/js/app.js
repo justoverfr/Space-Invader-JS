@@ -6,17 +6,18 @@ import * as ui from "./ui.js";
 
 console.clear();
 
-ui.startButton.addEventListener("click", start);
+ui.highscoreDisplay.innerHTML =
+    "Highscore : " + window.localStorage.getItem("highscore");
+
+ui.startButton.addEventListener("click", startGame);
 
 ui.restartButton.addEventListener("click", restart);
 
-ui.highscoreDisplay.innerHTML =
-    "Highscore : " + window.localStorage.getItem("highscore");
+ui.continueButton.addEventListener("click", continueGame);
 
 function start() {
     manager.initShip();
     manager.initAliens();
-    manager.initScore();
 
     manager.initDisplay();
 
@@ -35,6 +36,29 @@ function update() {
     }
 }
 
+function startGame() {
+    start();
+    manager.resetScore();
+    alien.resetSpeedAndShootFrequency();
+}
+
+function continueGame() {
+    start();
+    alien.increaseSpeed(5);
+
+    if (alien.getShootFrequency() > 0.2) {
+        alien.lowerShootFrequency(0.2);
+    }
+    bullet.nextAlienShoot = Date.now() + 2;
+}
+
 function restart() {
     start();
+    manager.resetScore();
+    alien.resetSpeedAndShootFrequency();
+}
+
+function quit() {
+    ui.hide(ui.gameSection);
+    ui.show(ui.mainMenuSection);
 }
