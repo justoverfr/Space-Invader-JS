@@ -31,7 +31,8 @@ export function updateBullet() {
         nextMove = Date.now() + (1 / speed) * 1000;
     }
 
-    if (Date.now() > nextAlienShoot) {
+    const lowestAlienY = alienArray[alienArray.length - 1][1];
+    if (Date.now() > nextAlienShoot && lowestAlienY < gridHeight - 6) {
         alienShoot();
         nextAlienShoot = Date.now() + alienShootFrequency * 1000;
     }
@@ -39,7 +40,6 @@ export function updateBullet() {
 
 function alienShoot() {
     const alienBulletPos = initAlienBulletPos();
-    console.log(alienBulletPos);
 
     alienBulletArray.push(alienBulletPos);
     sound.shootSound.play();
