@@ -5,12 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Space Invader</title>
         <link rel="stylesheet" href="assets/css/style.css" />
+        <script type="module" src="assets/js/app.js"></script>
     </head>
     <body>
-        <h3>Score :</h3>
+        <section id="game">
+            <h2 class="result"></h2>
+            <h3 class="score"></h3>
 
-        <div class="grille"></div>
+            <div class="grille"></div>
+        </section>
 
-        <script type="module" src="assets/js/app.js"></script>
+        <section>
+            <div class="button-container">
+                <button id="restart-button" disabled>RESTART</button>
+            </div>
+            <div class="button-container">
+                <button id="start-button">START</button>
+            </div>
+        </section>
     </body>
 </html>

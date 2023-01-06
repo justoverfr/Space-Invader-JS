@@ -1,22 +1,37 @@
 import * as grid from "./grid.js";
 import * as alien from "./alien.js";
 import * as manager from "./game-manager.js";
+import * as bullet from "./missile.js";
+import * as ui from "./ui.js";
 
 console.clear();
-window.requestAnimationFrame(update);
+
+ui.startButton.addEventListener("click", start);
+
+ui.restartButton.addEventListener("click", restart);
 
 function start() {
     manager.initShip();
     manager.initAliens();
+    manager.initScore();
+
+    manager.initDisplay();
+
+    manager.startGame();
+    window.requestAnimationFrame(update);
 }
 
-start();
-
 function update() {
-    grid.updateGrid();
-
     alien.updateAlien();
-    manager.death();
+    bullet.updateBullet();
+    manager.manageCollision();
 
-    window.requestAnimationFrame(update); // Game loop
+    grid.updateGrid();
+    if (manager.isPlaying) {
+        window.requestAnimationFrame(update); // Game loop
+    }
+}
+
+function restart() {
+    start();
 }
