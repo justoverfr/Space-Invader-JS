@@ -11,6 +11,8 @@ export const continueButton = document.querySelector("#continue-button");
 export const restartButton = document.querySelector("#restart-button");
 export const quitButton = document.querySelector("#quit-button");
 
+export const difficultySelect = document.getElementsByName("difficulty");
+
 export function displayGame() {
     gameSection.style.display = "block";
 }

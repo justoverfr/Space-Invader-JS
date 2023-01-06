@@ -12,6 +12,8 @@ let score = 0;
 let highscore = window.localStorage.getItem("highscore");
 export let isPlaying;
 
+export let difficulty;
+
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
@@ -170,4 +172,9 @@ function endGame() {
     }
 
     sound.stopSound(sound.backgroundMusic);
+}
+
+export function setDifficulty(value) {
+    difficulty = value;
+    console.log(difficulty);
 }

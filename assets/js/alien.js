@@ -5,11 +5,14 @@ import { gridHeight } from "./grid.js";
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 export let alienArray = [];
+let defaultSpeed = 3;
+let defaultShootFrequency = 1;
+
 export let speed = 3;
 export let alienShootFrequency = 1;
 let direction = 1;
 
-export const alienXNum = 1;
+export const alienXNum = 12;
 export const alienYNum = 1;
 
 let goingDown = false;
@@ -21,6 +24,14 @@ export let alienPos;
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
+export function setDefaultSpeed(value) {
+    defaultSpeed = value;
+}
+
+export function setDefaultShootFrequency(value) {
+    defaultShootFrequency = value;
+}
+
 export function increaseSpeed(value) {
     speed += value;
 }
@@ -30,8 +41,8 @@ export function lowerShootFrequency(value) {
 }
 
 export function resetSpeedAndShootFrequency() {
-    speed = 3;
-    alienShootFrequency = 1;
+    speed = defaultSpeed;
+    alienShootFrequency = defaultShootFrequency;
 }
 
 export function updateAlien() {

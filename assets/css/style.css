@@ -103,7 +103,8 @@ button[disabled] {
     justify-content: center;
 }
 
-button {
+button,
+radio {
     font-size: 25px;
     font-family: "Press Start 2p";
 
