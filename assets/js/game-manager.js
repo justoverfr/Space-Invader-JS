@@ -158,6 +158,7 @@ export function win() {
 function endGame() {
     isPlaying = false;
     ui.show(ui.endGameSection);
+    ui.show(ui.resultDisplay);
 
     if (highscore == null || score > highscore) {
         highscore = score;
