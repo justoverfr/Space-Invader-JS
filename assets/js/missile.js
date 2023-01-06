@@ -19,6 +19,10 @@ let nextMove = Date.now();
 /* -------------------------------------------------------------------------- */
 /*                                   Program                                  */
 /* -------------------------------------------------------------------------- */
+export function setNextAlienShoot(value) {
+    nextAlienShoot = value;
+}
+
 export function updateBullet() {
     if (Date.now() > nextMove) {
         moveBullet(bulletArray, -1);
