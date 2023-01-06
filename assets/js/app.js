@@ -15,6 +15,8 @@ ui.restartButton.addEventListener("click", restart);
 
 ui.continueButton.addEventListener("click", continueGame);
 
+ui.quitButton.addEventListener("click", quit);
+
 function start() {
     manager.initShip();
     manager.initAliens();
@@ -60,5 +62,6 @@ function restart() {
 
 function quit() {
     ui.hide(ui.gameSection);
+    ui.hide(ui.endGameSection);
     ui.show(ui.mainMenuSection);
 }
