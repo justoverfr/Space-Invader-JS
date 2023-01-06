@@ -34,14 +34,38 @@
                 <button id="start-button">START</button>
             </div>
 
-            <input type="radio" name="difficulty" value="easy" />
-            <input
-                type="radio"
-                name="difficulty"
-                value="medium"
-                checked="checked"
-            />
-            <input type="radio" name="difficulty" value="hard" />
+            <div class="radio-group">
+                <div class="radio-button">
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        id="easy"
+                        value="easy"
+                    />
+                    <label for="easy">Easy</label>
+                </div>
+
+                <div class="radio-button">
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        id="medium"
+                        value="medium"
+                        checked="checked"
+                    />
+                    <label for="medium">Medium</label>
+                </div>
+
+                <div class="radio-button">
+                    <input
+                        type="radio"
+                        name="difficulty"
+                        id="hard"
+                        value="hard"
+                    />
+                    <label for="hard">Hard</label>
+                </div>
+            </div>
         </section>
     </body>
 </html>

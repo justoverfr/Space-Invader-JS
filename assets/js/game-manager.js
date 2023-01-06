@@ -10,6 +10,9 @@ import { gridWidth, gridHeight } from "./grid.js";
 /* -------------------------------------------------------------------------- */
 let score = 0;
 let highscore = window.localStorage.getItem("highscore");
+if (highscore == null) {
+    highscore = 0;
+}
 export let isPlaying;
 
 export let difficulty = "medium";

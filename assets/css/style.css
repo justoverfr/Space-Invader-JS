@@ -104,7 +104,7 @@ button[disabled] {
 }
 
 button,
-radio {
+.radio-button {
     font-size: 25px;
     font-family: "Press Start 2p";
 
@@ -123,7 +123,21 @@ radio {
     box-shadow: 0 0.2em gray;
     cursor: pointer;
 }
-button:active {
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+input {
+    display: none;
+}
+
+button:active,
+.radio-button:has(input:checked) {
+    background-color: rgb(160, 160, 160);
     box-shadow: none;
     position: relative;
     top: 0.2em;
