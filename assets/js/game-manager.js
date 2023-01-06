@@ -20,6 +20,7 @@ export let isPlaying;
 
 export function startGame() {
     bullet.bulletArray.splice(0, bullet.bulletArray.length);
+    bullet.alienBulletArray.splice(0, bullet.alienBulletArray.length);
     isPlaying = true;
 
     sound.backgroundMusic.play();
