@@ -13,7 +13,7 @@ body {
     background-color: black;
     background: url(../images/seamless-space.png);
     animation: background-defile 10s linear infinite;
-
+    margin-top: 100px;
     color: white;
     font-family: "Press Start 2p";
 }
@@ -71,6 +71,7 @@ body {
 h2,
 h3 {
     text-align: center;
+    margin-top: 70px;
 }
 
 .grille div {
@@ -139,6 +140,7 @@ button,
     border-radius: 7px;
     box-shadow: 0 0.2em gray;
     cursor: pointer;
+    margin-top: 50px;
 }
 
 .radio-group {
