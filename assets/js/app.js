@@ -42,6 +42,15 @@ function update() {
         restartButton.removeAttribute("disabled");
     }
 }
+function continueGame() {
+    start();
+    alien.increaseSpeed(5);
+
+    if (alien.getShootFrequency() > 0.2) {
+        alien.lowerShootFrequency(0.2);
+    }
+    bullet.nextAlienShoot = Date.now() + 2;
+}
 
 function restart() {
     start();
