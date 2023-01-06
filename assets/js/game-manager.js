@@ -22,16 +22,16 @@ export function startGame() {
     bullet.bulletArray.splice(0, bullet.bulletArray.length);
     isPlaying = true;
 
-    ui.displayGame();
-    ui.hide(ui.mainMenuSection);
-
     sound.backgroundMusic.play();
 }
 
 export function initDisplay() {
+    ui.displayGame();
     ui.hide(ui.endGameSection);
+    ui.hide(ui.mainMenuSection);
+    ui.hide(ui.resultDisplay);
 
-    ui.scoreDisplay.innerHTML = "Score: 0";
+    ui.scoreDisplay.innerHTML = "Score : " + score;
 }
 
 export function resetScore() {
