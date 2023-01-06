@@ -7,6 +7,10 @@ import { gridHeight } from "./grid.js";
 export let alienArray = [];
 const speed = 3;
 let direction = 1;
+
+export const alienXNum = 12;
+export const alienYNum = 3;
+
 let goingDown = false;
 let leavingSide = false;
 

@@ -48,8 +48,13 @@ export function initShip() {
 export function initAliens() {
     alien.alienArray.splice(0, alien.alienArray.length);
 
-    for (let posY = 0; posY < 3; posY++) {
-        for (let posX = 4; posX < 16; posX++) {
+    const maxAlienY = alien.alienYNum;
+    const minAlienX =
+        Math.floor(gridWidth / 2) - Math.floor(alien.alienXNum / 2);
+    const maxAlienX = minAlienX + alien.alienXNum;
+
+    for (let posY = 0; posY < maxAlienY; posY++) {
+        for (let posX = minAlienX; posX < maxAlienX; posX++) {
             alien.alienArray.push([posX, posY]);
         }
     }
@@ -80,7 +85,11 @@ export function manageCollision() {
 
     const shipPos = [[ship.shipPosX, ship.shipPosY]];
     const shipCollision = detectCollision(shipPos, alien.alienArray);
-    if (shipCollision !== null) {
+    const alienBulletCollision = detectCollision(
+        shipPos,
+        bullet.alienBulletArray
+    );
+    if (shipCollision !== null || alienBulletCollision !== null) {
         death();
     }
 
