@@ -23,13 +23,13 @@ export function startGame() {
     isPlaying = true;
 
     ui.displayGame();
-    ui.disableAllButtons();
+    ui.hide(ui.mainMenuSection);
 
     sound.backgroundMusic.play();
 }
 
 export function initDisplay() {
-    ui.hide(ui.resultDisplay);
+    ui.hide(ui.endGameSection);
 
     ui.scoreDisplay.innerHTML = "Score: 0";
 }
@@ -153,7 +153,7 @@ export function win() {
 
 function endGame() {
     isPlaying = false;
-    ui.show(ui.resultDisplay);
+    ui.show(ui.endGameSection);
     ui.enableButton(ui.restartButton);
 
     if (highscore == null || score > highscore) {
