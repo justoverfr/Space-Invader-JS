@@ -39,7 +39,7 @@ function update() {
 }
 
 function startGame() {
-    // manager.resetScore();
+    manager.resetScore();
     alien.resetSpeedAndShootFrequency();
     start();
 }
