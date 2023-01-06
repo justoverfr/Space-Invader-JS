@@ -9,8 +9,8 @@ import { gridWidth, gridHeight } from "./grid.js";
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
 let score = 0;
-let highscore = window.localStorage.getItem("highscore");
-if (highscore == null) {
+export let highscore = window.localStorage.getItem("highscore");
+if (highscore == null || highscore == undefined) {
     highscore = 0;
 }
 export let isPlaying;

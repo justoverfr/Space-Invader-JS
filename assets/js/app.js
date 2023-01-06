@@ -7,7 +7,7 @@ import * as ui from "./ui.js";
 console.clear();
 
 ui.highscoreDisplay.innerHTML =
-    "Highscore : " + window.localStorage.getItem("highscore");
+    "Highscore : " + manager.highscore;
 
 ui.startButton.addEventListener("click", startGame);
 
