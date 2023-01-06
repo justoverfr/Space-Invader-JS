@@ -67,25 +67,10 @@ function moveBullet(array, direction) {
     });
 }
 
-function shoot(key) {
-    if (key == "32") {
+export function shoot() {
+    if (Date.now() > nextShoot) {
         bulletArray.push([shipPosX, shipPosY - 1]);
         sound.shootSound.play();
-    }
-}
-
-function keydown(event) {
-    var key = event.keyCode;
-
-    if (Date.now() > nextShoot) {
-        shoot(key);
         nextShoot = Date.now() + shootRate * 1000;
     }
 }
-
-function keyup(event) {
-    var key = event.keyCode;
-}
-
-window.addEventListener("keydown", keydown, false);
-window.addEventListener("keyup", keyup, false);

@@ -187,3 +187,16 @@ export function setDifficulty(value) {
     difficulty = value;
     console.log(difficulty);
 }
+
+function keydown(event) {
+    var key = event.keyCode;
+    if ([81, 37, 68, 39, 90, 38, 83, 40].includes(key)) {
+        ship.moveShip(key);
+    }
+
+    if (key == 32) {
+        bullet.shoot();
+    }
+}
+
+window.addEventListener("keydown", keydown, false);
