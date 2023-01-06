@@ -1,4 +1,5 @@
 import * as manager from "./game-manager.js";
+import * as sound from "./sound.js";
 import { gridHeight } from "./grid.js";
 
 /* -------------------------------------------------------------------------- */
@@ -101,4 +102,6 @@ function moveAlien() {
             manager.death();
         }
     });
+
+    sound.moveAlienSound.play();
 }

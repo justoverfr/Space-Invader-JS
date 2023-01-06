@@ -87,6 +87,8 @@ export function manageCollision() {
         deletePosition(bullet.bulletArray, bulletCollision);
         addScore(1);
 
+        sound.alienDeath.play();
+
         if (alien.alienArray.length == 0) {
             win();
         }
@@ -149,6 +151,8 @@ export function death() {
     ui.resultDisplay.innerHTML = "Game Over";
     ui.resultDisplay.style.color = "red";
 
+    sound.deahtSound.play();
+
     ui.enableButton(ui.restartButton);
     ui.disableButton(ui.continueButton);
     endGame();
@@ -157,6 +161,8 @@ export function death() {
 export function win() {
     ui.resultDisplay.innerHTML = "You Won";
     ui.resultDisplay.style.color = "green";
+
+    sound.winSound.play();
 
     ui.enableButton(ui.continueButton);
     ui.disableButton(ui.restartButton);

@@ -1,5 +1,6 @@
 import { gridHeight } from "./grid.js";
 import { shipPosX, shipPosY } from "./ship.js";
+import * as sound from "./sound.js";
 import { alienArray, alienShootFrequency } from "./alien.js";
 
 /* -------------------------------------------------------------------------- */
@@ -41,6 +42,7 @@ function alienShoot() {
     console.log(alienBulletPos);
 
     alienBulletArray.push(alienBulletPos);
+    sound.shootSound.play();
 }
 
 function initAlienBulletPos() {
@@ -68,6 +70,7 @@ function moveBullet(array, direction) {
 function shoot(key) {
     if (key == "32") {
         bulletArray.push([shipPosX, shipPosY - 1]);
+        sound.shootSound.play();
     }
 }
 
