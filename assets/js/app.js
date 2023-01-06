@@ -10,6 +10,9 @@ ui.startButton.addEventListener("click", start);
 
 ui.restartButton.addEventListener("click", restart);
 
+ui.highscoreDisplay.innerHTML =
+    "Highscore : " + window.localStorage.getItem("highscore");
+
 function start() {
     manager.initShip();
     manager.initAliens();

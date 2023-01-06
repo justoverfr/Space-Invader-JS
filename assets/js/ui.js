@@ -1,5 +1,6 @@
 export const gameDisplay = document.querySelector("#game");
 export const scoreDisplay = document.querySelector(".score");
+export const highscoreDisplay = document.querySelector(".highscore");
 export const resultDisplay = document.querySelector(".result");
 
 export const startButton = document.querySelector("#start-button");
